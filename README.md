@@ -1,1 +1,1 @@
-# Buat Folder untuk Kelompok A dan B
+# Buat Branch untuk Kelompok A dan B
