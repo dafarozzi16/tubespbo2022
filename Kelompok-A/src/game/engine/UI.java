@@ -38,7 +38,6 @@ public class UI {
             ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("PixelMplus10-Regular.ttf")));
         }
         catch (IOException | FontFormatException ignored){
-            System.out.println("Font failed to load!");
         }
 
         //PIXEL FONT
@@ -53,7 +52,7 @@ public class UI {
         window = new JFrame();
         window.setSize(800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().setBackground(Color.BLACK);
+        window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
         window.setResizable(false);
 
@@ -61,8 +60,8 @@ public class UI {
         // TITLE SCREEN
         titleNamePanel = new JPanel();
         titleNamePanel.setBounds(100, 100, 600, 150);
-        titleNamePanel.setBackground(Color.BLACK);
-        titleNameLabel = new JLabel("<html><font color='red'>eR</font>Pe<font color='red'>Gie</font></html>");
+        titleNamePanel.setBackground(Color.black);
+        titleNameLabel = new JLabel("<html><font color='red'>GOD</font>QUEST</html>");
         titleNameLabel.setFont(titleFont);
         titleNameLabel.setForeground(Color.white);
         titleNamePanel.add(titleNameLabel);

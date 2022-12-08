@@ -1,6 +1,7 @@
 package game.scenarios;
 
 import game.generators.EnemyGenerator;
+import game.state.Game;
 import game.state.GameWorld;
 
 public class Boss {

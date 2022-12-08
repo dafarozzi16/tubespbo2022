@@ -253,9 +253,8 @@ public class GameWorld {
         return inventory;
     }
 
-    public Boss getBoss() { 
-        return boss; 
-    }
+    public Boss getBoss() { return boss; }
+
 
     public GhostTown getGhostTown() {
         return ghostTown;

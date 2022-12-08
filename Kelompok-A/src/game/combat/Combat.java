@@ -23,4 +23,5 @@ public class Combat {
         attacked.lowerHp(actDamage);
         return actDamage;
     }
+
 }
