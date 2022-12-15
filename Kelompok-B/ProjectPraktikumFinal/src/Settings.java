@@ -3,7 +3,7 @@ public class Settings {
 	public static final String GAME_TITLE = "Rocket Asteroid",
 			BACKGROUN_IMAGE_PATH = "assets/images/BG Game.jpg",
 			BACKGROUN_IMAGE_PATH2 = "assets/images/BG menu.jpg",
-			BACKGROUN_IMAGE_PATH3 = "assets/images/background.png";
+			BACKGROUN_IMAGE_PATH3 = "assets/images/background.jpg";
 	public static final int WINDOW_HEIGHT = 400,
 			WINDOW_WIDTH = 280,
 			ENTITY_HEIGHT = 85,

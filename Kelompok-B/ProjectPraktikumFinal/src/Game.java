@@ -9,31 +9,26 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class GameBoard extends JPanel implements KeyListener {
-
-	GameWindow gameWindow;
+public class Game extends JPanel implements KeyListener {
+	Window window;
 	Database db;
 	PlayMusic music1 = new PlayMusic("assets/musics/bgmMenu.wav");
 	PlayMusic music2 = new PlayMusic("assets/musics/Click.wav");
 	Rocket user = new Rocket(Settings.DEFAULT_POSITION, Settings.WINDOW_HEIGHT - Settings.ENTITY_HEIGHT);
-	// Graphics g = new Graphics();
 	Asteroid[] asteroids = new Asteroid[Settings.TOTAL_TRAFFIC];
-
 	Traffic traffic;
-
 	boolean isCrashed;
 	public int gameState;
 	public int num = 1;
 	public final int menuState = 0;
 	public final int playState = 1;
 	public final int scoreState = 2;
-
-	public GameBoard(GameWindow gameWindow) {
+	public Game(Window window) {
 		super();
 		db = new Database();
 		gameState = menuState;
 		this.setPreferredSize(new Dimension(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT));
-		this.gameWindow = gameWindow;
+		this.window = window;
 		addKeyListener(this);
 		setFocusable(true);
 		music1.PlayMusicMenu();
@@ -49,13 +44,11 @@ public class GameBoard extends JPanel implements KeyListener {
 		this.isCrashed = false;
 		traffic = new Traffic(asteroids, user, this);
 	}
-
 	public void restartGame() {
 		this.removeKeyListener(this);
-		gameWindow.dispose();
-		gameWindow = new GameWindow();
+		window.dispose();
+		window = new Window();
 	}
-
 	@Override
 	public void keyPressed(KeyEvent event) {
 		if (gameState == playState) {
@@ -111,19 +104,14 @@ public class GameBoard extends JPanel implements KeyListener {
 		}
 
 	}
-
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-
 	}
-
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-
 	}
-
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		if (gameState == playState) {

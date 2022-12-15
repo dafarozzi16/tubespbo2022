@@ -5,17 +5,15 @@ import javax.swing.JOptionPane;
 public class Traffic extends Thread {
 	Asteroid[] asteroids;
 	Rocket user;
-	GameBoard board;
+	Game board;
 	PlayMusic music1 = new PlayMusic("assets/musics/bgmPlay.wav");
 	PlayMusic music2 = new PlayMusic("assets/musics/GameOver.wav");
 	int points = 0;
-
-	public Traffic(Asteroid[] asteroids, Rocket user, GameBoard board) {
+	public Traffic(Asteroid[] asteroids, Rocket user, Game board) {
 		this.asteroids = asteroids;
 		this.user = user;
 		this.board = board;
 	}
-
 	@Override
 	public void run() {
 		music1.PlayMusicStart();
@@ -39,9 +37,7 @@ public class Traffic extends Thread {
 					asteroids[i].setPosY(asteroids[i].getPosY() + 1);
 				}
 			}
-
 			board.repaint();
-
 			if (checkCollision()) {
 				music1.stopSound();
 				music2.PlayMusicGameOver();
@@ -59,7 +55,6 @@ public class Traffic extends Thread {
 				board.restartGame();
 				break;
 			}
-
 			//level speed is increasing based on player points
 			try {
 				int sleepTime = 6 - points / 10;
@@ -67,52 +62,32 @@ public class Traffic extends Thread {
 					sleepTime = 1;
 				}
 				Thread.sleep(sleepTime);
-				// Thread.sleep(2);
 			} catch (Exception ex) {
 
 			}
 		}
 	}
-
 	public int getScore() {
 		return this.points;
 	}
-
-	public int getExtraSpaceNeeded() {
-		int speedLevel = this.points / 10;
-
-		if (speedLevel >= 5) {
-			speedLevel = 6;
-		}
-
-		return speedLevel * 10;
-	}
-
 	public boolean checkCollision() {
-
 		for (int i = 0; i < asteroids.length; i++) {
 			Asteroid asteroid = asteroids[i];
-
 			if (asteroid.getPosX() == user.getPosX()) {
 				if (asteroid.getPosY() > user.getPosY()) {
 					int d = asteroid.getPosY() - user.getPosY();
-
 					if (d < (Settings.ENTITY_HEIGHT - 20)) {
 						return true;
 					}
 				} else {
-
 					int d = user.getPosY() - asteroid.getPosY();
-
 					if (d < (Settings.ENTITY_HEIGHT - 25)) {
 						return true;
 					}
 				}
 			}
 		}
-
 		return false;
-
 	}
 
 }

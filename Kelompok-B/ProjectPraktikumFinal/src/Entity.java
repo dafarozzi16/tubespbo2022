@@ -12,7 +12,6 @@ public class Entity {
     public void setPosY(int posY) {
         this.posY = posY;
     }
-
     public void moveLeft() {
         if (posX > -60 && posX <= 150) {
             posX -= Settings.ENTITY_SPEED;
