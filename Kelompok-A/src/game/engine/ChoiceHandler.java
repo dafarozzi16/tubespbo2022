@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class ChoiceHandler implements ActionListener{
@@ -46,7 +47,8 @@ public class ChoiceHandler implements ActionListener{
                         try {
                             gameworld.selectPosition("DESCRIPTION");
                         } catch (IOException e) {
-                            e.printStackTrace();
+                        } catch (SQLException e) {
+                            // TODO Auto-generated catch block
                         }
                     }
                     player.fartmasterCount = bullshitCount;
@@ -56,7 +58,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition("DESCRIPTION");
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -65,7 +68,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition("BEGIN");
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -74,7 +78,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition(gameworld.getNextPosition1());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -83,7 +88,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition(gameworld.getNextPosition2());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -92,7 +98,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition(gameworld.getNextPosition3());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -101,7 +108,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition(gameworld.getNextPosition4());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -113,7 +121,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition("INVENTORY");
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -122,7 +131,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition("CHARACTER_SHEET");
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -132,7 +142,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition(gameworld.getInventory().getLastPosition());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
 
@@ -141,7 +152,8 @@ public class ChoiceHandler implements ActionListener{
                 try {
                     gameworld.selectPosition("SHOP");
                 } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
                 }
                 break;
             case "end_this":

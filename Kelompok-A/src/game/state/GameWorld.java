@@ -6,6 +6,7 @@ import game.engine.VisibilityManager;
 import game.scenarios.*;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class GameWorld {
@@ -60,7 +61,7 @@ public class GameWorld {
     }
 
 
-    public void selectPosition(String nextPosition) throws IOException {
+    public void selectPosition(String nextPosition) throws IOException, SQLException {
         if (!nextPosition.contains("INVENTORY") && !nextPosition.equals("CHARACTER_SHEET")) {
             getInventory().setLastPosition(nextPosition);
         }

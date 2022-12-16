@@ -4,8 +4,12 @@ import game.creature.Player;
 import game.item.*;
 import game.item.armor.*;
 import game.state.GameWorld;
+import game.connection.*;
 
 import java.io.*;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
 
 
 public class Start {
@@ -24,13 +28,13 @@ public class Start {
     }
 
 
-    public void description() throws IOException {
+    public void description() throws IOException, SQLException {
 
         String savename = player.getSaveName();
         savename = savename.toUpperCase();
         player.setSaveName(savename);
         File file = new File(savename+".txt");
-        player.setEverythingToDefault(); // tu do zmiany jak ładowanie postaci
+        player.setEverythingToDefault(); // Disini player akan disetting kedalam default ketika player dimuat
         player.setHp(player.getMaxhp());
         String loaded = "";
 
@@ -135,6 +139,7 @@ public class Start {
             gameworld.getUi().mainTextArea.setText(loaded+"Your NAME now is " + player.getSaveName() + "." +
                     "<br>GOOD LUCK on your quest, " + player.getSaveName() + "!");
             gameworld.getUi().choice1.setText("Yeah!");
+            recordData(player.getSaveName());
         }
 
         gameworld.getVm().updateCurrentHPLabel(player.getHp());
@@ -159,5 +164,16 @@ public class Start {
             gameworld.setNextPosition1("BEGIN");
             gameworld.getUi().choice1.setText("<html><font color='red'>...</font></html>");
         }
+    }
+
+    public void recordData ( String newUser ) throws SQLException {
+        Connections koneksi = new Connections();
+        Statement statement = koneksi.getConnection().createStatement();
+        Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+        koneksi.koneksi();
+
+        String query = "INSERT INTO record_data VALUES (" + newUser + "," + currentTime + ")";
+
+        statement.executeUpdate(query);
     }
 }
